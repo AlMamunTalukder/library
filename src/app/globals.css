@@ -1,0 +1,77 @@
+
+@import url(../styles/style.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* @import url(/public/assests/); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* @import "swiper/swiper-bundle.min.css"; */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif, "SolaimanLipi";
+ 
+
+}
+body,
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'SolaimanLipi';
+    src: url('/fonts/SolaimanLipi-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+.sectionMargin{
+  margin-top:100px;
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 15px;
+  height: 15px;
+  background-color: #032bda;
+  border-radius: 50%;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #032bda;
+  border-radius: 50%;
+  transition: transform 0.2s ease-out; 
+}
+
+
+
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl md:text-2xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  h4{
+    @apply text-xl font-semibold ;
+  }
+}
+
+
