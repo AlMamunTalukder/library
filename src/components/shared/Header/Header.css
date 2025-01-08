@@ -9,10 +9,6 @@ li {
   position: relative;
 }
 
-
-
-
-
 .submenu {
   position: absolute;
   background-color: #f9f9f9;
@@ -26,7 +22,7 @@ li {
   visibility: hidden;
   opacity: 0;
   transform: translateY(0);
-  transition: all 0.5s ease;
+  transition: all 0.9s ease;
 }
 
 .submenu a {
@@ -34,10 +30,11 @@ li {
   padding: 10px;
 }
 
-.submenu a:hover {
+/* .submenu a:hover {
+  width: 100%;
   background-color: #c3ddff;
   border-radius: 3px;
-}
+} */
 
 li:hover .submenu {
   visibility: visible;

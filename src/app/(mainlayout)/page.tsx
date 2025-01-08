@@ -1,5 +1,6 @@
 import Slider from "@/components/shared/Slider/Slider";
-import InfoSection from "@/components/ui/Home/InfoSection";
+import FeaturedBooks from "@/components/ui/Home/FeaturedBooks/FeaturedBooks";
+import InfoSection from "@/components/ui/Home/InfoSection/InfoSection";
 
 
 
@@ -8,6 +9,7 @@ export default function Home() {
     <main >
      <Slider/>  
      <InfoSection/>
+     <FeaturedBooks/>
     </main>
   );
 }
