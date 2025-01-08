@@ -4,8 +4,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Accordion,
   AccordionSummary,
@@ -88,21 +88,14 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     {
-      href: "/Page",
+      href: "#",
       label: "Services",
       submenu: [
         { href: "/services/research", label: "Research & Development" },
         { href: "/services/development", label: "Sample Development" },
         { href: "/services/merchandising", label: "Merchandising" },
         { href: "/services/fab-sourcing", label: "Fabric Sourcing" },
-        { href: "/services/production", label: "Production" },
-        { href: "/services/qa-qc", label: "QA and QC" },
-        { href: "/services/delivery", label: "Delivery and Shipment" },
-        { href: "/services/knitting", label: "Knitting" },
-        { href: "/services/embroidery", label: "Embroidery" },
-        { href: "/services/dyeing-wash", label: "Garment Dyeing & Wash" },
-        { href: "/services/printing", label: "Printing" },
-        { href: "/services/trimming", label: "Trimming & Accessories" },
+        
       ],
     },
     { href: "/compliance", label: "Blog" },
@@ -117,8 +110,10 @@ const Header = () => {
           {/* Large Screen Menu */}
           <div className="hidden lg:block">
             <Link
-              href={item.href }
-              className={"flex gap-1 items-center mr-3 pr-5 hover:text-blue-500"}
+              href={item.href}
+              className={
+                "flex gap-1 items-center mr-3 pr-5 hover:text-blue-500"
+              }
               onClick={closeSidebar}
             >
               {item.label}
@@ -127,19 +122,18 @@ const Header = () => {
             {item.submenu && (
               <ul className="submenu absolute hidden group-hover:flex flex-col bg-white rounded shadow-lg p-2">
                 {item.submenu.map((subItem, subIndex) => (
-                  <li key={subIndex}>
-                    <Link
-                      href={subItem.href}
-                      className={`text-sm ${
-                        currentPath === subItem.href
-                          ? "text-blue-500 font-bold"
-                          : ""
-                      }`}
-                      onClick={closeSidebar}
-                    >
-                      {subItem.label}
-                    </Link>
-                  </li>
+                  <Link
+                    key={subIndex}
+                    href={subItem.href}
+                    className={`text-sm py-3 border-b-2 hover:bg-[#c3ddff] hover:font-bold ${
+                      currentPath === subItem.href
+                        ? "text-blue-500 font-bold"
+                        : ""
+                    }`}
+                    onClick={closeSidebar}
+                  >
+                    <li className="">{subItem.label}</li>
+                  </Link>
                 ))}
               </ul>
             )}
@@ -163,7 +157,7 @@ const Header = () => {
                 <AccordionDetails>
                   <ul className="flex flex-col">
                     {item.submenu.map((subItem, subIndex) => (
-                      <li key={subIndex} className="py-1">
+                      <li key={subIndex} className="py-3">
                         <Link
                           href={subItem.href}
                           className={`text-sm block ${
@@ -201,18 +195,21 @@ const Header = () => {
     <div className="bg-blue-800 text-white shadow-md">
       <div className="bg-white ">
         <div className="  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
-
           <div className="bg-[#012E4A] text-white h-16 lg:h-20 flex items-center px-2 lg:px-[30px] rounded-tr-[90px] lg:py-[55px] w-[250px] lg:w-[450px] ">
             <div className="absolute top-0 h-full w-24 lg:w-[120px]  rounded-tr-md" />
             <div className=" flex items-center justify-center gap-2 lg:gap-4  ">
-              <Image src={logo} alt="Logo" className="w-[40px] lg:w-[80px] h-[40px] lg:h-[80px]"  />
+              <Image
+                src={logo}
+                alt="Logo"
+                className="w-[40px] lg:w-[80px] h-[40px] lg:h-[80px]"
+              />
               <h1 className="text-[20px] lg:text-[40px]">আলোর পথ পাঠাগার</h1>
             </div>
           </div>
 
           {/* Navigation */}
           <div className="hidden lg:flex ">{navMenu}</div>
-          
+
           <div className="hidden lg:flex gap-10 ">
             {/* Category and Search */}
             <div className="flex items-center gap-2 bg-white rounded-full shadow-md px-4 my-6 border">
@@ -229,7 +226,7 @@ const Header = () => {
 
               <input
                 type="text"
-                placeholder="Author"
+                placeholder="Search by Book Name"
                 className="flex-grow px-4 text-sm text-gray-700 focus:outline-none"
               />
 
@@ -276,10 +273,17 @@ const Header = () => {
               </button>
             </div>
           </div>
-         
+
           <div className="lg:hidden  pl-[100px] pt-[12px]">
-            <button className="p-2 border border-black rounded-full" onClick={toggleNavbar}>
-              {isClick ? <CloseIcon sx={{color:"black"}}/> : <MenuIcon sx={{color:"black"}}/>}
+            <button
+              className="p-2 border border-black rounded-full"
+              onClick={toggleNavbar}
+            >
+              {isClick ? (
+                <CloseIcon sx={{ color: "black" }} />
+              ) : (
+                <MenuIcon sx={{ color: "black" }} />
+              )}
             </button>
           </div>
         </div>
